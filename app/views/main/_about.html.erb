@@ -1,0 +1,62 @@
+<div class="row">
+	<!-- About me -->
+	<div class="large-4 medium-4 columns c1">
+		<div class="row">
+			<div class="large-6 small-6 medium-6 columns">
+				<div class="circle">
+					<%= image_tag 'me.jpg', class: "my_pic" %>
+				</div>
+			</div>
+			<div class="large-6 small-6 medium-6 columns">
+				<div class="large-12">
+					<h1 class="about">ABOUT <span>ME<span></h1>
+				</div>
+			</div>
+			<hr />
+		</div>
+	</div>
+	<!-- Current Location -->
+	<div class="large-4 medium-4 columns c2">
+		<div class="large-12"><h2 class="subheader">CURRENT LOCATION:</h2></div>
+		<div class="large-12"><p>SLOVENIJA</p></div>
+		<div class="large-12">
+			<%= image_tag 'slo.png' %>
+		</div>
+		<hr />
+	</div>
+	<div class="large-4 medium-4 columns c3">
+		<!-- I'm all about -->
+		<div class="large-12"><h2 class="subheader">I'M ALL ABOUT:</h2></div>
+		<div class="large-12 why">
+			<ul>
+				<li>making client happy</li>
+				<li>simplicity</li>
+				<li>easy to use</li>
+				<li>unique</li>
+			</ul>
+		</div>
+		<!-- My carere -->
+		<div class="large-12"><h2 class="subheader">MY CARERE:</h2></div>
+			<div class="row carere">
+				<div class="large-5 small-5 columns year">15</div>
+				<div class="large-7 small-7 small-push-1 columns xp">
+					<p>YEARS</p>
+					<p>OF</p>
+					<p>EXPERIENCES</p>
+				</div>
+			</div>
+				<div class="large-2 small-3 medium-2 columns"><h3 class="subheader">In: </h3></div>
+				<div class="large-10 small-9 medium-10 columns">
+					<ul>
+						<li>COMPUTER REPAIR</li>
+						<li>NETWORK CONFIG</li>
+						<li>WEB DEVELEPMENT</li>
+						<li>OSC & ANDROID ROOT</li>
+						<li>MOBILE REPAIR</li>
+					</ul>
+				</div>
+	</div>
+	<div class="large-12">
+		<%= render 'skils' %>
+	</div>
+</div>

@@ -1,0 +1,42 @@
+
+<section id="main" class="front">
+	<section class="video-bg">
+			<%= video_tag 'matrix.mp4', width: '100%',preload: true, loop: true, autoplay: true %>
+	</section>
+	    <section class="row">
+                    <!-- NAVI -->
+                    <nav>
+                        <a class="active" role="button" data-anchor="intro">Home</a>
+                        <a role="button" data-anchor="about">About</a>
+                        <a role="button" data-anchor="work">Work</a>
+                        <a role="button" data-anchor="skills">Skills</a>
+                        <a role="button" data-anchor="contact">Get in touch</a>
+                    </nav>
+                    <!-- NAVI -->
+                </section>
+                <!-- QUOTE --> 
+                <section id="quote" class="row animated fadeIn">
+                    <article class="c12">
+                        <h2 class="animated bounceIn">Energy drink addicted <span class="highlight lime">{web}</span> <span class="highlight light">designer</span> and <span class="highlight light">developer</span> from Slovenia.</h2>
+                    </article>
+                </section> 
+                <!-- QUOTE -->              
+            </header>
+</section>
+
+<section id="work" class="large-12">
+	<%= render 'work' %>
+</section>
+
+<section id="about" class="large-12">
+	<%= render 'about' %>
+</section>
+
+<section id="contact" class="large-12">
+	<%= render 'contact' %>
+</section>
+
+<section id="social" class="large-12">
+	<%= render 'social' %>
+</section>
+
