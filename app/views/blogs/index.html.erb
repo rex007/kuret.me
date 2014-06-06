@@ -1,0 +1,27 @@
+<% meta :description => "My blogs about web development, new technologies and more" %>
+<h6><%=h content_for(:title, "Blogs - Andraz Kuret") %></h6>
+<div id="blogs" class="large-8 medium-8 push-2">
+  <% @blogs.each do |blog| %>
+    <div class="large-8 medium-8 large-push-2 medium-push-2 blog">
+      <div itemprop="name"  class="large-12 title">
+        <%= blog.title %>
+      </div>
+      <div itemprop="articleBody"  class="large-12 description">
+        <%= blog.description %>
+      </div>
+      <div  class="large-12">
+         <meta itemprop="image" content="http://www.kuret.me/uploads/ckeditor/pictures/6/content_image.jpeg">
+         <%= blog.ckimage.html_safe %>
+      </div>
+      <div itemprop="datePublished" content="<%= blog.updated_at.strftime('%b %d, %Y') %>"  class="large-4 medium-4 large-push-8 medium-push-8">
+        Written on <%= blog.updated_at.strftime('%b %d, %Y') %>
+      </div>
+    </div>
+  <% end %>
+  <div class="large-2 medium-3 small-3 large-push-8 medium-push-7 small-push-8">
+    <%= link_to "Back to Home", home_path %>
+  </div>
+</div>
+<meta itemprop="url" content="http://kuret.me">
+<span itemprop="author" itemscope itemtype="http://schema.org/Person">
+<meta itemprop="name" content="Andraz Kuret"></span>

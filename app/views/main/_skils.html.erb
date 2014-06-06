@@ -1,2 +1,10 @@
-<div id="diagram" class="large-2 small-11"></div>
-<div id="canvas_container" ></div>
+<div class="row">
+	<div id="diagram" class="large-12 small-12 columns"></div>
+	<div id="skilcirle" class="large-12 small-12 columns"></div>
+	<% @skills.each do |skill| %>
+	<div class="skills_adj large-1 small-1 columns">
+		<span class="text"><%= skill.name %></span>
+		<input type="hidden" class="percent" value="<%= skill.procents %>">
+	</div>
+	<% end %>
+</div>

@@ -12,7 +12,11 @@
  *= require foundation_and_overrides
  *= require_tree .
  */
-
+ #content{
+ 	overflow: hidden;
+ 	background-color:#000;
+ 	min-height: 700px;
+ }
 footer{
 	background: #090a0b;
 	width: 100%;

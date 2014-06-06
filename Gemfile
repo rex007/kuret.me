@@ -4,14 +4,24 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'mysql2'
 
 
  # Custom gems
 
 gem 'foundation-rails'
-gem 'raphaeljs-rails'
-
+gem 'rmagick'
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'mail_form'
+gem 'twitter'
+gem 'passenger'
+gem 'devise'
+gem 'sitemap_generator'
+gem 'jquery-fileupload-rails'
+gem "nested_form"
+gem 'ckeditor'
+gem 'metamagic'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

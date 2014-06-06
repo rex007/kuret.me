@@ -13,78 +13,470 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.effect-shake
-//= require foundation
-//= require turbolinks
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
+//= require jquery_nested_form
 //= require raphel
+//= require graphael
+//= require loader
+//= require foundation
+//= require transition
+//= require ckeditor/override
+//= require ckeditor/init
+//= require turbolinks
 //= require_tree .
+window.addEventListener('DOMContentLoaded', function() {
+    $("body").queryLoader2({
+    	barColor: "#6e6d73",
+        backgroundColor: "#000",
+        percentage: true,
+        barHeight: 1,
+        completeAnimation: "grow",
+        minimumTime: 100
+    });
+});
+
+var docwidth = $(window).width();
+
+if(docwidth < 430){
+	$(document).ready(function(){
+		skillZ_iphone.init();
+	});
+}else if(docwidth <704){
+	$(document).ready(function(){
+		skillZ_mobile.init();
+	});
+}else if(docwidth < 1055){
+	$(document).ready(function(){
+		skillZ_pad.init()
+		$('#matx').show();
+	})
+}else{
+	$(document).ready(function(){
+		skillZ_desktop.init();
+		$('#matx').show();
+	});
+}
 
 $(function(){ $(document).foundation(); });
 
 
 $(document).ready(function(){
 
-	skillZ.init()
-	socials.init()
+	$('#new_contact').on('ajax:success',function(){
+		$(this).css("opacity",1);
+		$('#ajax_call').hide();
+		$('#new_contact').each(function(){
+			this.reset();
+		});
+	}).bind('ajax:before',function(){
+			$('#ajax_call').show();
+			$(this).css("opacity",0.3);
+		});
+	
+	//     button size depend on the resolution
+	$(window).resize(function(){
+		var li = $('.nav ul li')
+		li.removeClass('tiny');
+		li.removeClass('small');
+		li.removeClass('large');
+		if($(window).width() < 501){
+			li.addClass('tiny');
+		}
+		if($(window).width() < 855){
+			li.addClass('small');
+		}
+		if($(window).width > 854){
+			li.addClass('large');
+		}
+	})
 
+	$(document).scroll(function(){
+		var top = $(window).scrollTop();
+		var where = $(document).height() - $(window).height();
+		var circle_pic = $('.circle_pic'),
+			slo_pic = $('.slo_pic'),
+			c2 = $('.c2'),
+			h2 = $('.c1 h2'),
+			p = $('.c1 p'),
+			tweets = $('.tweets');
+			if($(window).width() > 786){
+				if(top > where - 1550){
+					$('.blog').show(1000);
+				}
+				if(top > where -1150){  //start about animation
+					circle_pic.transition({x:'1000px',rotate:'1080deg'},2000);
+					c2.transition({opacity:'1'},1500,'ease-in');
+					$('.c32').transition({x:'-1000px'},1000,'ease');
+					$('.c33').transition({x:'-1000px'},1000,'ease');
+					$('.c34').transition({opacity:'1'},1000,'ease');
+					$('.c35').transition({x:'-1000px'},1000,'ease');
+					h2.transition({opacity:'1'},1450,'ease-in');	
+					p.transition({opacity:'1'},1450,'ease-in');		
+				}
+				if(top > where -150){
+					tweets.transition({opacity:'1'},1500,'ease-in');
+				}	
+			}else if($(window).width() > 705 && $(window).width() < 787){
+				if(top > where - 1500){
+					$('.blog').show(1000);
+				}
+				if(top > where -1200){  //start about animation
+					circle_pic.transition({x:'1000px',rotate:'1080deg'},2000);
+				}
+				if(top > where - 1100){
+					h2.transition({opacity:'1'},1450,'ease-in');	
+					p.transition({opacity:'1'},1450,'ease-in');		
+					c2.transition({opacity:'1'},1500,'ease-in');
+					$('.c32').transition({x:'-1000px'},1300,'ease',function(){
+						$('.c3carere').transition({opacity:'1'},1400,'ease',function(){
+							$('.c33').transition({x:'-1000px'},1300,'ease',function(){
+								$('.c34').transition({opacity:'1'},1000,'ease-in',function(){
+									$('.c35').transition({x:'-1000px'},1300,'ease');
+								})
+							});
+						});
+					});			
+				}
+				if(top > where -150){
+					tweets.transition({opacity:'1'},1500,'ease-in');
+				}
+			}else if($(window).width() > 429){
+				if(top > where - 1900){
+					$('.blog').show(1000);
+				}
+				if(top > where -1800){  //start about animation
+					circle_pic.transition({x:'1000px',rotate:'1080deg'},2000);
+				}
+				if(top > where - 1700){
+					h2.transition({opacity:'1'},1450,'ease-in');	
+					p.transition({opacity:'1'},1450,'ease-in');		
+				}
+				if(top > where -1600){	
+					c2.transition({opacity:'1'},1500,'ease-in');
+				}
+				if(top > where -1350){
+					$('.c32').transition({x:'1000px'},1300,'ease',function(){
+						$('.c3carere').transition({opacity:'1'},1400,'ease',function(){
+							$('.c33').transition({x:'-1000px'},1300,'ease',function(){
+								$('.c34').transition({opacity:'1'},1000,'ease-in',function(){
+									$('.c35').transition({x:'-1000px'},1300,'ease');
+								})
+							});
+						});
+					});			
+				}
+				if(top > where -150){
+					tweets.transition({opacity:'1'},1500,'ease-in');
+				}	
+			}else{
+				if(top > where - 2400){
+					$('.blog').show(700);
+				}
+				if(top > where -2390){  //start about animation
+					circle_pic.transition({x:'1000px',rotate:'1080deg'},1000);
+				}
+				if(top > where - 2290){
+					h2.transition({opacity:'1'},950,'ease-in',function(){
+						p.transition({opacity:'1'},950,'ease-in');
+					});							
+				}
+				if(top > where -2100){	
+					c2.transition({opacity:'1'},900,'ease-in');
+				}
+				if(top > where -1850){
+					$('.c32').transition({x:'1000px'},900,'ease',function(){
+						$('.c3carere').transition({opacity:'1'},1000,'ease',function(){
+							$('.c33').transition({x:'-1000px'},900,'ease',function(){
+								$('.c34').transition({opacity:'1'},700,'ease-in',function(){
+									$('.c35').transition({x:'-1000px'},900,'ease');
+								});
+							});
+						});
+					});			
+				}
+				if(top > where -250){
+					tweets.transition({opacity:'1'},1000,'ease-in');
+				}	
+			}		
+	});
+
+
+	
+	socials.init()
+	var tw = "https://twitter.com/d3javu086",
+		fb = "https://www.facebook.com/andraz.kuret",
+		git = "https://github.com/rex007",
+		skype = "skype://rex0072";
 	$('#social_fb svg rect').on('mouseover', function(){
 		$('#social_fb svg').effect("shake", {times:4,distance:5}, 300);
+	}).on('click',function(){
+		window.open(tw);
 	});
 	$('#social_tw svg rect').on('mouseover', function(){
 			$('#social_tw svg').effect("shake", {times:4,distance:5}, 300);
-		});
+		}).on('click',function(){
+		window.open(skype);
+	});
 	$('#social_git svg rect').on('mouseover', function(){
 			$('#social_git svg').effect("shake", {times:4,distance:5}, 300);
-		});
+		}).on('click',function(){
+		window.open(fb);
+	});
 	$('#social_sk svg rect').on('mouseover', function(){
 			$('#social_sk svg').effect("shake", {times:4,distance:5}, 300);
+	}).on('click',function(){
+		window.open(git);
 	});
+
+
+	var review = $('.work_image img');
+	// review.transition({rotate:'90deg'});
+	
+
+	review.on('mouseenter',function(){
+		$(this).transition({opacity: '0.3'},700,'ease-out');
+	}).on('mouseout',function(){
+		$(this).transition({opacity: '1'},600,'ease-in');
+	})
+		(function workSlide(idx){
+			var $ref = $('.work1');
+				$ref.eq(idx).animate({top:'-=350'},1000).delay(2000).animate({right:'+=800'},500).hide(100).delay(1000).animate({right:'-=800',top:'+=350'},function () {
+		    	workSlide(idx + 1 < $ref.length ? idx + 1 : 0);
+		  		}).show();
+			}(0));
 
 }); // end document.ready
 
-	var skillZ = {
+
+
+	var skillZ_desktop = {
 		init: function(){
 			this.diagram();
 		},
 		diagram: function(){
-			var p = Raphael('diagram',1000,300),
-			    c = p.circle(100,130,35).attr("fill", "#3fa9ff"),
-				panel1 = p.rect(150, 79, 0, 0),
-    			panel2 = p.rect(270, 131, 0, 0),
-    			panel3 = p.rect(390, 80, 0, 0),
-    			panel4 = p.rect(510, 131, 0, 0),
-    			panel5 = p.rect(630, 79, 0, 0);
-			c.click(function(){
-				    line = p.path("M 100 130").attr({stroke: "#3fa9ff","arrow-start":'clasic-medium-long'}).animate({path: "M 100 130l700 0 "},1000);
-				    this.cx = this.cx || 800;
-    				this.animate({cx: this.cx}, 1000, "linear");
-    				var skillShow = Raphael.animation({fill: "#3fa9ff",stroke: "#3fa9ff",height: 100, width: 110}, 1000, 'bounce'),
-    					skillHide = Raphael.animation({height: 0, width: 0}),
-    					lineShow = Raphael.animation({path: "M 100 130l700 0 "},1000);
-    				if(this.cx == 800){
-    					this.cx = 100
-    					line.animate(lineShow);
-    					panel1.animate(skillShow.delay(200));
-    					panel2.animate(skillShow.delay(400));
-    					panel3.animate(skillShow.delay(600));
-    					panel4.animate(skillShow.delay(800));
-    					panel5.animate(skillShow.delay(1000));
-    				}else{
-    					this.cx = 800;
-    					line = line.animate({opacity: 0},1000, "linear");
-    					panel5.animate(skillHide.delay(150));
-    					panel4.animate(skillHide.delay(350));
-    					panel3.animate(skillHide.delay(550));
-    					panel2.animate(skillHide.delay(750));
-    					panel1.animate(skillHide.delay(950));
-    				};
+			var originX = 50,
+	            originY = 90,
+	            barWidth = 70,
+	            barMargin = 50,
+	            colors=["#1abc18","#2fc1ac","#d80508","#a124d8","#d8602d"],
+			    p = Raphael('diagram',100+'%',300);
+    		var circle = p.circle(800,185,100).attr({stroke:"red"});
+    		var title = p.text(800,185,'Skills').attr({fill:'red',font:'30px Arial'}).toFront();
+            var skills= $('.skills_adj');
+            skills.each(function(i){
+            	var t = $(this);
+            	var value = t.find('.percent').val(),
+            		height = p.height * (t.find('.percent').val()*.01),
+            		text = t.find('.text').text();
+            	var z = p.rect(originX,originY,barWidth,height).attr({fill:colors[i],'stroke-width':0,stroke:colors[i]});
+            	originX = originX + barWidth + barMargin;            	
+            	z.mouseover(function(){
+            		this.animate({'y':10,'stroke-width':10,opacity: .75 }, 1000, 'elastic');
+	                if(Raphael.type != 'VML') //solves IE problem
+	                    this.toFront();
+	                circle.animate({stroke:colors[i],'stroke-width':7},600,'bounce',function(){
+	                	this.animate({stroke:"red",'stroke-width':1},900,'ease-out');
+	                });
+	                title.animate({opacity:0,fill:colors[i]},500, '>',function(){
+	                	this.attr({text: text,width:circle.getBBox().width}).animate({opacity:1},500,'<');
+	                });
+            	}).mouseout(function(){
+	                this.animate({ y: originY, 'stroke-width': 0, opacity: 1 }, 1000, 'elastic');
+	                title.animate({opacity:0},500,'>',function(){
+	                	this.attr({text: 'Skills',fill:'red'}).animate({opacity:1},500,'<');
+	                });
+           		 });
+            	z.touchstart(function(){
+            		this.animate({'y':10,'stroke-width':10,opacity: .75 }, 1000, 'elastic');
+	                if(Raphael.type != 'VML') //solves IE problem
+	                    this.toFront();
+	                circle.animate({stroke:colors[i],'stroke-width':7},600,'bounce',function(){
+	                	this.animate({stroke:"red",'stroke-width':1},900,'ease-out');
+	                });
+	                title.animate({opacity:0,fill:colors[i]},500, '>',function(){
+	                	this.attr({text: text,width:circle.getBBox().width}).animate({opacity:1},500,'<');
+	                });
+            	}).touchend(function(){
+	                this.animate({ y: originY, 'stroke-width': 0, opacity: 1 }, 1000, 'elastic');
+	                title.animate({opacity:0},500,'>',function(){
+	                	this.attr({text: 'Skills',fill:'red'}).animate({opacity:1},500,'<');
+	                });
+           		 });
+            });
 
-			});
-			c.node.onmouseover = function(){
-				this.style.cursor = "pointer";
-			};
-			// c.node.onmouseout = function(){
-			// 	c.animate({transform: "s1.0"},400,"linear");
-			// }
+		}
+	}
+
+	var skillZ_mobile = {
+		init: function(){
+			this.diagram();
+		},
+		diagram: function(){
+			var originX = 10,
+	            originY = 50,
+	            barWidth = 30,
+	            barMargin = 10,
+	            colors=["#1abc18","#2fc1ac","#d80508","#a124d8","#d8602d"],
+			    p = Raphael('diagram',100+'%',300);
+    		var circle = p.circle(80+'%',50+'%',100).attr({stroke:"red"});
+    		var title = p.text(80+'%',55+'%','Skills').attr({fill:'red',font:'20px Arial'}).toFront();
+            var skills= $('.skills_adj');
+            skills.each(function(i){
+            	var t = $(this);
+            	var value = t.find('.percent').val(),
+            		height = p.height * (t.find('.percent').val()*.01),
+            		text = t.find('.text').text();
+            	var z = p.rect(originX,originY,barWidth,height).attr({fill:colors[i],'stroke-width':0,stroke:colors[i]});
+            	originX = originX + barWidth + barMargin;            	
+            	z.mouseover(function(){
+            		this.animate({'y':10,'stroke-width':10,opacity: .75 }, 1000, 'elastic');
+	                if(Raphael.type != 'VML') //solves IE problem
+	                    this.toFront();
+	                circle.animate({stroke:colors[i],'stroke-width':7},600,'bounce',function(){
+	                	this.animate({stroke:"red",'stroke-width':1},900,'ease-out');
+	                });
+	                title.animate({opacity:0,fill:colors[i]},500, '>',function(){
+	                	this.attr({text: text,width:circle.getBBox().width}).animate({opacity:1},500,'<');
+	                });
+            	}).mouseout(function(){
+	                this.animate({ y: originY, 'stroke-width': 0, opacity: 1 }, 1000, 'elastic');
+	                title.animate({opacity:0},500,'>',function(){
+	                	this.attr({text: 'Skills',fill:'red'}).animate({opacity:1},500,'<');
+	                });
+           		 });
+            	z.touchstart(function(){
+            		this.animate({'y':10,'stroke-width':10,opacity: .75 }, 1000, 'elastic');
+	                if(Raphael.type != 'VML') //solves IE problem
+	                    this.toFront();
+	                circle.animate({stroke:colors[i],'stroke-width':7},600,'bounce',function(){
+	                	this.animate({stroke:"red",'stroke-width':1},900,'ease-out');
+	                });
+	                title.animate({opacity:0,fill:colors[i]},500, '>',function(){
+	                	this.attr({text: text,width:circle.getBBox().width}).animate({opacity:1},500,'<');
+	                });
+            	}).touchend(function(){
+	                this.animate({ y: originY, 'stroke-width': 0, opacity: 1 }, 1000, 'elastic');
+	                title.animate({opacity:0},500,'>',function(){
+	                	this.attr({text: 'Skills',fill:'red'}).animate({opacity:1},500,'<');
+	                });
+           		 });
+            });
+
+		}
+	}
+	var skillZ_iphone = {
+		init: function(){
+			this.diagram();
+		},
+		diagram: function(){
+			var originX = 15,
+	            originY = 55,
+	            barWidth = 35,
+	            barMargin = 15,
+	            colors=["#1abc18","#2fc1ac","#d80508","#a124d8","#d8602d"],
+			    p = Raphael('diagram',100+'%',300),
+			    c = Raphael('skilcirle',100+'%',300);
+    		var circle = c.circle(45+'%',30+'%',70).attr({stroke:"red"});
+    		var title = c.text(45+'%',32+'%','Skills').attr({fill:'red',font:'15px Arial'}).toFront();
+            var skills= $('.skills_adj');
+            skills.each(function(i){
+            	var t = $(this);
+            	var value = t.find('.percent').val(),
+            		height = p.height * (t.find('.percent').val()*.01),
+            		text = t.find('.text').text();
+            	var z = p.rect(originX,originY,barWidth,height).attr({fill:colors[i],'stroke-width':0,stroke:colors[i]});
+            	originX = originX + barWidth + barMargin;            	
+            	z.mouseover(function(){
+            		this.animate({'y':10,'stroke-width':10,opacity: .75 }, 1000, 'elastic');
+	                if(Raphael.type != 'VML') //solves IE problem
+	                    this.toFront();
+	                circle.animate({stroke:colors[i],'stroke-width':7},600,'bounce',function(){
+	                	this.animate({stroke:"red",'stroke-width':1},900,'ease-out');
+	                });
+	                title.animate({opacity:0,fill:colors[i]},500, '>',function(){
+	                	this.attr({text: text,width:circle.getBBox().width}).animate({opacity:1},500,'<');
+	                });
+            	}).mouseout(function(){
+	                this.animate({ y: originY, 'stroke-width': 0, opacity: 1 }, 1000, 'elastic');
+	                title.animate({opacity:0},500,'>',function(){
+	                	this.attr({text: 'Skills',fill:'red'}).animate({opacity:1},500,'<');
+	                });
+           		 });
+            	z.touchstart(function(){
+            		this.animate({'y':10,'stroke-width':10,opacity: .75 }, 1000, 'elastic');
+	                if(Raphael.type != 'VML') //solves IE problem
+	                    this.toFront();
+	                circle.animate({stroke:colors[i],'stroke-width':7},600,'bounce',function(){
+	                	this.animate({stroke:"red",'stroke-width':1},900,'ease-out');
+	                });
+	                title.animate({opacity:0,fill:colors[i]},500, '>',function(){
+	                	this.attr({text: text,width:circle.getBBox().width}).animate({opacity:1},500,'<');
+	                });
+            	}).touchend(function(){
+	                this.animate({ y: originY, 'stroke-width': 0, opacity: 1 }, 1000, 'elastic');
+	                title.animate({opacity:0},500,'>',function(){
+	                	this.attr({text: 'Skills',fill:'red'}).animate({opacity:1},500,'<');
+	                });
+           		 });
+            });
+
+		}
+	}
+	var skillZ_pad = {
+		init: function(){
+			this.diagram();
+		},
+		diagram: function(){
+			var originX = 30,
+	            originY = 70,
+	            barWidth = 50,
+	            barMargin = 30,
+	            colors=["#1abc18","#2fc1ac","#d80508","#a124d8","#d8602d"],
+			    p = Raphael('diagram',100+'%',300);
+    		var circle = p.circle(80+'%',50+'%',100).attr({stroke:"red"});
+    		var title = p.text(80+'%',55+'%','Skills').attr({fill:'red',font:'25px Arial'}).toFront();
+            var skills= $('.skills_adj');
+            skills.each(function(i){
+            	var t = $(this);
+            	var value = t.find('.percent').val(),
+            		height = p.height * (t.find('.percent').val()*.01),
+            		text = t.find('.text').text();
+            	var z = p.rect(originX,originY,barWidth,height).attr({fill:colors[i],'stroke-width':0,stroke:colors[i]});
+            	originX = originX + barWidth + barMargin;            	
+            	z.mouseover(function(){
+            		this.animate({'y':10,'stroke-width':10,opacity: .75 }, 1000, 'elastic');
+	                if(Raphael.type != 'VML') //solves IE problem
+	                    this.toFront();
+	                circle.animate({stroke:colors[i],'stroke-width':7},600,'bounce',function(){
+	                	this.animate({stroke:"red",'stroke-width':1},900,'ease-out');
+	                });
+	                title.animate({opacity:0,fill:colors[i]},500, '>',function(){
+	                	this.attr({text: text,width:circle.getBBox().width}).animate({opacity:1},500,'<');
+	                });
+            	}).mouseout(function(){
+	                this.animate({ y: originY, 'stroke-width': 0, opacity: 1 }, 1000, 'elastic');
+	                title.animate({opacity:0},500,'>',function(){
+	                	this.attr({text: 'Skills',fill:'red'}).animate({opacity:1},500,'<');
+	                });
+           		 });
+            	z.touchstart(function(){
+            		this.animate({'y':10,'stroke-width':10,opacity: .75 }, 1000, 'elastic');
+	                if(Raphael.type != 'VML') //solves IE problem
+	                    this.toFront();
+	                circle.animate({stroke:colors[i],'stroke-width':7},600,'bounce',function(){
+	                	this.animate({stroke:"red",'stroke-width':1},900,'ease-out');
+	                });
+	                title.animate({opacity:0,fill:colors[i]},500, '>',function(){
+	                	this.attr({text: text,width:circle.getBBox().width}).animate({opacity:1},500,'<');
+	                });
+            	}).touchend(function(){
+	                this.animate({ y: originY, 'stroke-width': 0, opacity: 1 }, 1000, 'elastic');
+	                title.animate({opacity:0},500,'>',function(){
+	                	this.attr({text: 'Skills',fill:'red'}).animate({opacity:1},500,'<');
+	                });
+           		 });
+            });
 
 		}
 	}
@@ -95,16 +487,6 @@ $(document).ready(function(){
 			// this.shapes();
 			this.icons();
 		},
-
-		// shapes: function(){
-		// 	var w = 100,
-		// 		h = 145;
-		// 	var p1 = Raphael('social_fb',w + '%', h),
-		// 		p2 = Raphael('social_tw',w + '%', h),
-		// 		p3 = Raphael('social_git',w + '%' ,h),
-		// 		p4 = Raphael('social_sk',w + '%', h);
-		// 	var shape1 = p1.path("M 0 70.25 47.25 70.25 95 70.25");
-		// },
 
 		icons: function(){
 			var w = 125, 
@@ -126,12 +508,13 @@ $(document).ready(function(){
 
 			var shape1 = p3.rect(20,30,85, 85);
 				shape1.transform("r45").attr({fill: "#656464"}).toBack();
+				shape1.node.href = 'http://google.com';
 			var shape2 = p1.rect(20,30,85, 85);
-				shape2.transform("r45").attr({fill: "#656464"}).toBack();
+				shape2.transform("r45").attr({fill: "#656464",href:"http://www.google.com"}).toBack();
 			var shape3 = p4.rect(20,30,85, 85);
-				shape3.transform("r45").attr({fill: "#656464"}).toBack();
+				shape3.transform("r45").attr({fill: "#656464",href:"http://www.google.com"}).toBack();
 			var shape4 = p2.rect(20,30,85, 85);
-				shape4.transform("r45").attr({fill: "#656464"}).toBack();
+				shape4.transform("r45").attr({fill: "#656464",href:"http://www.google.com"}).toBack();
 
 			var as1 = Raphael.animation({fill: "#2e4388"},200, 'bounce'),
 				as11 = Raphael.animation({fill: "#656464"},200, 'bounce'),
@@ -144,6 +527,7 @@ $(document).ready(function(){
 			shape1.node.onmouseover = function(){
 				shape1.animate(as1.delay(100));
 				fb_icon.animate(ask.delay(100));
+				this.attr()
 			}
 			shape1.node.onmouseout = function(){
 				shape1.animate(as11.delay(90));

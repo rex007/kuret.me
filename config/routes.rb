@@ -1,10 +1,26 @@
 Kuret::Application.routes.draw do
+
+  mount Ckeditor::Engine => '/ckeditor'
+  devise_for :admins
+  resources :blogs
+  resources :skills
+  resources :works
+  resources :bios
+  resources :contacts, only: [:new, :create]
+
+  get 'sign_in', to: 'devise/session#new', as:"signin"
+  get 'sign_out', to: 'devise/session#destroy', as: "signout"
+  get "bios/content"
+  get "works/index"
+  get "skills/index"
   get "main/index"
+  get 'contact', to: 'contacts#new', via: :get
+  get 'contact', to: 'contacts#create', via: :post
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'main#index'
+  root 'main#index', as: "home"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

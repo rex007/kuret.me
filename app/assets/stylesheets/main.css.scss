@@ -2,13 +2,73 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#matx{
+			background: #000;
+			color: rgba(0, 255, 0, .7);
+			width: 100%;
+			height: 100%;
+			text-shadow: rgba(255, 255, 255, .8) 0px 0px 4px;
+			display:none;
+			position: absolute; 
+			}
+		@-webkit-keyframes fadeing{
+			0%   { opacity: 1; }
+			100% { opacity: 0; }
+			}
+		@-webkit-keyframes falling{
+			from {top: -250px;}
+			to  {top: 388px;}
+			}
+		#matx div{
+			position: absolute;
+			top: 0;
+			text-transform: lowercase;
+			-webkit-transform:rotate(90deg);
+			-moz-transform:rotate(90deg);
+			-o-transform:rotate(90deg);
+			-ms-transform:rotate(90deg);
+			transform:rotate(90deg);
+			-webkit-animation-name: falling, fadeing;
+			-moz-animation-name: falling, fadeing;
+			-ms-animation-name: falling, fadeing;
+			-o-animation-name: falling, fadeing;
+			animation-name: falling, fadeing;
+			-webkit-animation-timing-function: ease-out;
+			-moz-animation-timing-function: ease-out;
+			-ms-animation-timing-function: ease-out;
+			-o-animation-timing-function: ease-out;
+			animation-timing-function: ease-out;
+			-webkit-animation-iteration-count: infinite;
+			-moz-animation-iteration-count: infinite;
+			-ms-animation-iteration-count: infinite;
+			-o-animation-iteration-count: infinite;
+			animation-iteration-count: infinite;
+			-webkit-animation-direction: normal; 
+			}
+		.t1{
+			-webkit-animation-duration: 4s;
+			}
+		.t2{
+			-webkit-animation-duration: 6s;
+			}
+		.t3{
+			-webkit-animation-duration: 8s;
+			}
+		.t4{
+			-webkit-animation-duration: 10s;
+			}
+		.t5{ 
+			-webkit-animation-duration: 13s;
+			}
+
 #main{
 	position: relative;
 	width: 100%;
-	height: 100%;
+	min-height: 100%;
+	overflow:hidden;
 	.video-bg{
-		filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-		opacity:0.7;
+		filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+		opacity:0.9;
 		position:absolute;
 		top:-100px;
 		left:0px;
@@ -17,30 +77,112 @@
 		width:auto;
 		height:auto;
 		z-index:-1000;
-		overflow:hidden
 		video{
 			position:absolute;
-			top:-100px;
 			left:0px;
+			top:0;
 			min-width:100%;
 			min-height:100%;
 			width:auto;
-			height:auto
 		}
+
+	.nav_scroll{
+		position:fixed;
+		z-index:9;
+	}
 	}
 	#quote{
-		margin: 0 auto;
+		.nav{
+			margin:30px 12% 0 12%;
+			li{
+				background-color:#0c8306;
+				&:hover{
+					background-color:#0fae07;
+				}
+			}
+			li:first-child{
+				border-radius: 40% 0 0 40%;
+			}
+			li:last-child{
+				border-radius: 0 40% 40% 0;
+			}
+		}
 	}
 }
 #work{
 	background: #191b1e;
 	width: 100%;
 	min-height: 350px;
+
+	.work{
+		height: 400px;
+		overflow:hidden;
+		// top:400px;
+		position:relative;
+		.work1{
+			top:400px;
+			position:absolute;
+			padding: 40px 0;
+			height: 80%;
+			width: 100%;
+			background-color:#1c1e20;
+			border-radius: 2%;
+			
+		}
+	}
+	.work_image{
+
+	}
+	.p{
+		p:first-child{
+			margin-top:20px;
+		}
+		span:first-child{
+			color: white;
+		}
+		span:last-child{
+			color: #8b8b8b;
+		}
+	}
+
+
+	.top{
+		top: 0;
+	}
+	.left{
+		right: 300;
+	}
+
+	.blog{
+		margin-top:50px;
+		background-color:#1c1e20;
+		max-height: 80%;
+		display:none;
+		h5{
+			color:#989696;
+			text-align:center;
+		}
+		strong{
+			color: #989696;
+		}
+		span{
+			color:white;
+			margin-left: 15px;
+		}
+		.description{
+			color: #8b8b8b;
+		}
+	}
+
 }
 #about{
 	background: #2b2d31;
 	width: 100%;
 	min-height: 900px;
+
+	.white{
+		color:white;
+	}
 
 	h2{
 		color:red;
@@ -52,11 +194,19 @@
 	ul li{
 		color:white;
 	}
+	.skills_adj{
+		display:none;
+	}
 	// columns
 	.c1{
+		.circle_pic{
+			position:relative;
+			left: -1000px;
+		}
 		.circle{
+			position: relative;
 			width: 80%;
-			height: 80%;
+			height: 100%;
 			margin:10px;
 			-webkit-border-radius: 50%;
 			border-radius: 50%;
@@ -74,8 +224,16 @@
 			font-size: 1.6em;
 			margin-bottom:100px;
 		}
+		h2, p{
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+			filter: alpha(opacity=0);
+			opacity: 0;
+		}
 	}
 	.c2{
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+		filter: alpha(opacity=0);
+		opacity:0;
 		padding-top:20px;
 		p{
 			color:white;
@@ -83,13 +241,24 @@
 			font-weight: bolder;
 			letter-spacing: 0.2em;
 		}
+		
 	}
 	.c3{
+		overflow:hidden;
 		padding-top:20px;
+		.c33{
+			left:1000px;
+		}
+		.c3carere{
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+			filter: alpha(opacity=0);
+			opacity:0;
+		}
 		.why{
 			margin-left:20px;
 		}
 		.carere{
+			padding-top:40px;
 			.year{
 				color: white;
 				font-size: 6em;
@@ -102,19 +271,19 @@
 			p:first-child{
 				color: red;
 				font-size: 2em;
-				margin-top:1px;
+				margin-top:-20px;
 			}
 			p:nth-child(even){
 				color: white;
 				font-size: 1.5em;
-				margin-top:-37px;
+				margin-top:-13px;
 				padding-left: 33px;
 			}
 			p:last-child{
 				color: white;
 				font-size: 1.3em;
-				margin-top:-30px;
-				margin-left:-18px;
+				margin-top:-15px;
+				margin-left:-15px;
 			}
 		}
 		h3{
@@ -132,13 +301,57 @@
 	background: url('contact_bg.png') 50% 60% #212225;
 	width: 100%;
 	min-height: 400px;
+	text-align: center;
+	.contact_info{
+		background-color:#212326;
+		padding:20px 0 20px 20px;
+		h5{
+			color:white;
+		}
+		p{
+			color:gray;
+			span{
+				color:red;
+			}
+		}
+	}
+	.contact_top_padding{
+		height: 50px;
+	}
+	.btn{
+		background-color: rgba(113,10,19,1);
+	}
+	textarea{
+		height: 100%;
+	}
 }
 #social{
+	overflow:hidden;
 	background: #191b1e;
 	width: 100%;
 	min-height: 145px;
 	img{
 		float:left;
+	}
+	.tweets{
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+		filter: alpha(opacity=0);
+		opacity:0;
+		height: 99%;
+		margin-top:5px;
+		background-color:#1c1e20;
+		h4{
+			color:#525151;
+		}
+		p{
+			color:#ffffff;
+		}
+		
+	}
+	#social_fb svg rect, #social_tw svg rect, #social_git svg rect, #social_sk svg rect{
+		&:hover{
+			cursor: pointer;
+		}
 	}
 
 }
@@ -165,4 +378,13 @@
  
 #diagram {
     float:left;
+}
+.cp{
+	text-align:center;
+}
+.footer ul li a{
+	color: gray;
+	&:hover{
+		color: white;
+	}
 }

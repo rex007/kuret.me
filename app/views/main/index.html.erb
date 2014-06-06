@@ -1,42 +1,80 @@
+<% meta :description => "Ruby on Rails, Jquery,  Web Developer, computer IT specialist, computers services. Strategy great, fast and powerfull projects, systems and applications. Andraz Kuret" %>
+<div data-magellan-destination="home" id="main" class="front">
+    <a name="home"></a>
+     	<div id="matx"> 
+         <div class="t1" style="left:2px;">I like to code and code and code</div>
+         <div class="t5" style="left:45px;">Ruby on rails Javascript Jquery Mysql</div>
+         <div class="t1" style="left:180px;">createve web development</div>
+         <div class="t2" style="left:300px;">I like to code and code and code</div>
+         <div class="t4" style="left:330px;">Ruby on rails Javascript Jquery Mysql</div>
+         <div class="t2" style="left:360px;">how to create</div>
+         <div class="t3" style="left:390px;">Ruby on rails Javascript Jquery Mysql</div>
+         <div class="t1" style="left:405px;">createve web development</div>
+         <div class="t3" style="left:420px;">I like to code and code and code</div>
+         <div class="t5" style="left:470px;">Ruby on rails Javascript Jquery Mysql</div>
+         <div class="t2" style="left:410px;">I like to code and code and code</div>
+         <div class="t3" style="left:530px;">Ruby on rails Javascript Jquery Mysql</div>
+         <div class="t5" style="left:570px;">Create Slide Show With Pure CSS3</div>
+         <div class="t4" style="left:610px;">I like to code and code and code</div>
+         <div class="t2" style="left:650px;">Ruby on rails Javascript Jquery Mysql</div>
+         <div class="t1" style="left:690px;">createve web development</div>
+         <div class="t3" style="left:810px;">I like to code and code and code</div>
+         <div class="t5" style="left:840px;">Ruby on rails Javascript Jquery Mysql</div>
+         <div class="t2" style="left:870px;">I like to code and code and code</div>
+    </div> 
+                <div id="quote" class="row">
+                    <div class="large-12 medium-12 small-12">
+                        <h1 class="animated bounceIn" style="color:white"><strong>Technology addicted <span class="highlight lime">Javascript, </span> <span class="highlight light">and </span> Ruby on Rails <span class="highlight light">developer</span> who like to think differente</strong></h1>
+                    </div>
+                    <div class="large-12 medium-12 small-12 nav">
+                        <ul>
+                            <li class="button"><a href="#home">Home</a></li>
+                            <li class="button"><a href="#work">Work</a></li>
+                            <li class="button"><a href="#about">About</a></li>
+                            <li class="button"><a href="#skills">Skills</a></li>
+                            <li class="button"><a href="#contact">Contact</a></li>
+                            <li class="button"><a href="#social">Social</a></li>
+                        </ul>
+                    </div>
+                </div> 
 
-<section id="main" class="front">
-	<section class="video-bg">
-			<%= video_tag 'matrix.mp4', width: '100%',preload: true, loop: true, autoplay: true %>
-	</section>
-	    <section class="row">
-                    <!-- NAVI -->
-                    <nav>
-                        <a class="active" role="button" data-anchor="intro">Home</a>
-                        <a role="button" data-anchor="about">About</a>
-                        <a role="button" data-anchor="work">Work</a>
-                        <a role="button" data-anchor="skills">Skills</a>
-                        <a role="button" data-anchor="contact">Get in touch</a>
-                    </nav>
-                    <!-- NAVI -->
-                </section>
-                <!-- QUOTE --> 
-                <section id="quote" class="row animated fadeIn">
-                    <article class="c12">
-                        <h2 class="animated bounceIn">Energy drink addicted <span class="highlight lime">{web}</span> <span class="highlight light">designer</span> and <span class="highlight light">developer</span> from Slovenia.</h2>
-                    </article>
-                </section> 
-                <!-- QUOTE -->              
-            </header>
-</section>
+</div>
 
-<section id="work" class="large-12">
+<div id="work" class="large-12">
+    <a name="work"></a>
+    <div class="row">
 	<%= render 'work' %>
-</section>
+	<%= render 'blog' %>
+    </div>
+</div>
 
-<section id="about" class="large-12">
+<div id="about" class="large-12">
+    <a name="about"></a>
 	<%= render 'about' %>
-</section>
+</div>
 
-<section id="contact" class="large-12">
+<div id="contact" class="large-12">
+    <a name="contact"></a>
 	<%= render 'contact' %>
-</section>
+</div>
 
-<section id="social" class="large-12">
+<div id="social" class="large-12">
+    <a name="social"></a>
 	<%= render 'social' %>
-</section>
-
+</div>
+<div class="footer large-12">
+	<div class="large-12 footer_btw"></div>
+	<div class="large-8 medium-8 small-12 columns cp">Copyright © 2014 | All Rights Reserved by the site owner</div>
+	<div class="large-2 medium-2 small-12 columns">
+		<a href="https://plus.google.com/+andrazkuret?rel=author" rel="publisher" target="_blank" title="Google+">Google+</a>
+	</div>
+	<div class="large-2 medium-2 small-12 columns">
+		<ul>
+ 			<% if current_admin %>
+				<li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete %></li>	
+			<% else %>
+				<li><%= link_to 'Sign in', new_admin_session_path %></li>
+  			<% end %>
+		</ul>
+	</div>
+</div>

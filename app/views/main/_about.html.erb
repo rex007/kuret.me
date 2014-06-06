@@ -1,33 +1,44 @@
 <div class="row">
 	<!-- About me -->
+	<h2 data-megallen-destination="about" ></h2>
 	<div class="large-4 medium-4 columns c1">
 		<div class="row">
 			<div class="large-6 small-6 medium-6 columns">
-				<div class="circle">
-					<%= image_tag 'me.jpg', class: "my_pic" %>
+				<div class="circle_pic">
+					<div class="circle">
+						<%= image_tag 'me.jpg', class: "my_pic" %>
+					</div>
 				</div>
 			</div>
 			<div class="large-6 small-6 medium-6 columns">
-				<div class="large-12">
-					<h1 class="about">ABOUT <span>ME<span></h1>
+				<div class="large-6 small-6">
+					<h2 class="about"><strong>ABOUT</strong> <span>ME</span></h2>
 				</div>
 			</div>
 			<hr />
+			<div class="large-4 ">
+				<h2 class="subheader"><strong>BIO:</strong></h2>
+			</div>
+			<div class="large-12">
+				<% @bios.each do |bio| %>
+					<p class="white"><%= bio.content %></p>
+				<% end %>
+			</div>
 		</div>
 	</div>
 	<!-- Current Location -->
 	<div class="large-4 medium-4 columns c2">
-		<div class="large-12"><h2 class="subheader">CURRENT LOCATION:</h2></div>
+		<div class="large-12"><h2 class="subheader"><strong>CURRENT LOCATION:</strong></h2></div>
 		<div class="large-12"><p>SLOVENIJA</p></div>
-		<div class="large-12">
-			<%= image_tag 'slo.png' %>
+		<div id="map" class="large-12">
+			<%= image_tag 'slo.png', class: 'slo_pic' %>
 		</div>
 		<hr />
 	</div>
 	<div class="large-4 medium-4 columns c3">
 		<!-- I'm all about -->
-		<div class="large-12"><h2 class="subheader">I'M ALL ABOUT:</h2></div>
-		<div class="large-12 why">
+		<div class="large-12 small-12 medium-12 c32"><h2 class="subheader"><strong>I'M ALL ABOUT:</strong></h2></div>
+		<div class="large-12 medium-12 small-12 why c32">
 			<ul>
 				<li>making client happy</li>
 				<li>simplicity</li>
@@ -36,17 +47,17 @@
 			</ul>
 		</div>
 		<!-- My carere -->
-		<div class="large-12"><h2 class="subheader">MY CARERE:</h2></div>
+		<div class="large-12 c3carere"><h2 class="subheader"><strong>MY CARERE:</strong></h2></div>
 			<div class="row carere">
-				<div class="large-5 small-5 columns year">15</div>
-				<div class="large-7 small-7 small-push-1 columns xp">
+				<div class="large-5 small-5 columns year c33"><%= @years_of_experience %></div>
+				<div class="large-7 small-7 small-push-1 columns xp c33">
 					<p>YEARS</p>
 					<p>OF</p>
 					<p>EXPERIENCES</p>
 				</div>
 			</div>
-				<div class="large-2 small-3 medium-2 columns"><h3 class="subheader">In: </h3></div>
-				<div class="large-10 small-9 medium-10 columns">
+				<div class="large-2 small-3 medium-2 columns c33"><h3 class="subheader"><strong>In: </strong></h3></div>
+				<div class="large-10 small-9 medium-10 columns c33">
 					<ul>
 						<li>COMPUTER REPAIR</li>
 						<li>NETWORK CONFIG</li>
@@ -57,6 +68,8 @@
 				</div>
 	</div>
 	<div class="large-12">
+		<a name="skills"></a>
+		<h2 data-magellan-destination="skills" ></h2>
 		<%= render 'skils' %>
 	</div>
 </div>

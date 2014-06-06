@@ -1,0 +1,28 @@
+// Place all the styles related to the Blogs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#blogs, #blogs_show{
+	.blog{
+		margin:10px 0;
+		padding:10px;
+		background-color:#35393c;
+		.title,.description{
+			text-align:center;
+			margin:8px 0;
+		}
+		.title{
+			color: white;
+		}
+		.description{
+			color: black;
+		}
+	}
+	.blog > div:last-child{
+		color: white;
+	}
+}
+#blogs > div:last-child{
+	text-align:center;
+	background-color: #35393a;
+	border-radius:5px;
+}

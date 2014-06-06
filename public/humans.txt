@@ -1,0 +1,16 @@
+/* TEAM */
+	Chef AND Developer:Andraz Kuret
+	Contact: hello [at] kuret.me
+	Email: info@kuret.me
+	From:Postojna, Slovenia, Europe
+
+
+
+		
+
+/* SITE */
+	Last update:2014/2/17
+	Language: English / Slovenian / 
+	Doctype:HTML5
+	IDE: Sublime Text,Fireworks, FileZilla, Photoshop
+	Ruby On Rails / ZURB Foundation / CKEditor

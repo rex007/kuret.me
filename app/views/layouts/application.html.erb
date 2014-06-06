@@ -1,19 +1,54 @@
 <!DOCTYPE html>
+<!--
+More Info :
+/* humans.txt */
+
+          Made by Andraz Kuret
+
+              Proteus Lab
+                Postojna
+                  :-)
+-->
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
+    <meta name="msvalidate.01" content="1271BC07106DDB063F037626A5FC388C" />
+	
+    <title><%= content_for?(:title) ? yield(:title) : "Andraz Kuret-Ruby on Rails Developer" %></title>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
-  </head>
+
+     <%= metamagic %>
+    <meta name="keywords" content="SEO, Ruby on Rails, Web design, Internet, Web production, Website, Computer, Computers services, IT specialist, app, application, system, social, proteusla
+b" />
+    <link rel="author" href="https://plus.google.com/+andrazkuret" />
+    <meta name="revisit-after" content="1 day" />
+    <meta name="robots" content="index,follow" />
+    <meta name="googlebot" content="index,follow" /> 
+    <meta name="msvalidate.01" content="1271BC07106DDB063F037626A5FC388C"/>
+ </head>
 
   <body>
 
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application", "nested_form" %>
+    <div itemscope itemtype="http://schema.org/Article"  id="content" class="large-12">
+      <%= yield %>
+    </div>  
+  
+  <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-47959496-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; 
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
   </body>
 </html>

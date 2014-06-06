@@ -1,0 +1,15 @@
+<div class="large-5 medium-5 small-11 push-1 columns blog">
+<div class="large-12"><h5><strong>What's on my mind</strong></h5></div>
+                        <% @blogs.each do |blog| %>
+                                <div class="large-11 small-11 medium-11">
+                                        <div class="large-10 small-10 medium-10 columns"><span><%= blog.title %></span></div>
+                                </div>
+                                <div class="large-11 small-11 medium-11">
+                                        <div class="large-2 small-2 medium-11 columns"></div>
+                                        <div class="large-10 small-10 medium-11 columns description"><%= truncate(blog.description, length: 100) %><%= link_to "Read more", blog  %><hr /></div>
+                                </div>
+                        <% end %>
+                        <div class="large-12 columns more">
+                                <%= link_to "All Blogs", blogs_path %>
+                        </div>
+</div>

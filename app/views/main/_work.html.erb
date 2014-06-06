@@ -1,0 +1,16 @@
+	<h2 data-magellan-destination="work" ></h2>
+		<div class="large-6 small-11 medium-7 work columns">
+			<% @works.each do |work| %>
+				<a href="http://www.<%= work.link %>" target="_blank" >
+					<div class="large-12 work1">
+						<div class="work_image large-7 small-7 medium-7 columns">
+							<%= image_tag(work.image.url(:thumb)) %>
+						</div>
+						<div class="p large-5 small-5 medium-5 columns">
+							<p><span><b>Project:</b></span> <br /><span><%= work.project %></span></p>
+							<p><span><b>Desciption:</b></span><br /><span><%= work.description %></span></p>
+						</div>
+					</div>
+				</a>
+			<% end %>
+		</div>

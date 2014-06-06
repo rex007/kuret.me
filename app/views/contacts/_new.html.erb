@@ -1,0 +1,14 @@
+<%= form_for(@contact,remote: true) do |f| %>
+	<div class="large-12">
+		<%= f.text_field :name, placeholder: "First and last name" %>
+	</div>
+	<div class="large-12">
+		<%= f.text_field :email, placeholder: "E-mail address" %>
+	</div>
+	<div class="large-12">
+		<%= f.text_area :message, rows: 6, placeholder: "Your message" %>
+	</div>
+	<div class="form-actions pull-4">
+		<%= f.submit "Send message", class: 'button btn ajax_call' %>
+	</div>
+<% end %>

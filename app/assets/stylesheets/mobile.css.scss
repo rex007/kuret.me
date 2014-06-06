@@ -1,0 +1,50 @@
+@media only screen and (max-width:787px){
+	.nav{
+	}
+	#quote{
+		h1{
+			font-size:20px;
+			-moz-text-shadow:1px 1px 3px #fff;
+			-webkit-text-shadow:1px 1px 3px #fff;
+			text-shadow:1px 1px 3px #fff;
+		}
+	}
+	.c32{
+		left:1000px;
+	}
+}
+@media only screen and (min-width: 789px){
+	#content{
+		margin-top:-100px;
+	}
+	.nav{
+		margin:30px 12% 0 12%;
+	}
+	#quote{
+		margin: 15% auto 20% auto;
+		h1{
+			-moz-text-shadow:1px 4px 3px #fff;
+			-webkit-text-shadow:1px 4px 3px #fff;
+			text-shadow:2px 2px 4px #fff;
+		}
+	}
+	.c32{
+		left:1000px;
+	}
+	#blogs, #blogs_show{
+		margin-top:150px;
+	}
+	.footer_btw{
+		height:25%;
+	}
+}
+@media only screen and (max-width: 370px){
+	.c32{
+		left:-1000px;
+	}
+	.more{
+		padding-left:50%;
+		padding-bottom:20px;
+	}
+}
+
