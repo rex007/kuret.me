@@ -34,8 +34,8 @@ Kuret::Application.configure do
       :address              => 'smtp.gmail.com',
       :port                 => 587,
       :domain               => 'gmail.com',
-      :user_name            => 'rex007@gmail.com',
-      :password             => 'pegazus26262',
+      :user_name            => '',
+      :password             => '',
       :authentication       => 'login',
       :enable_starttls_auto => true
   }
